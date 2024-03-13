@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "400774185891",
+    "project_id": "klb-event-scaner",
+    "storage_bucket": "klb-event-scaner.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400774185891:android:337572bdff046c7feb5016",
+        "android_client_info": {
+          "package_name": "com.klb.klbeventscanner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9JLjZquDNLDjQxbHQM3-wD7uTOw8VFVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
