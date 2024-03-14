@@ -7,24 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageBg"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bg1" />
-
     <TextView
         android:id="@+id/textViewWelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CHÀO MỪNG ANH THAM DỰ HỘI NGHỊ"
-        android:textColor="@color/white"
-        android:textSize="32dp"
+        android:layout_width="350dp"
+        android:layout_height="38dp"
+        android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/marginTopTextWelcome" />
@@ -37,15 +24,26 @@
         app:layout_constraintGuide_percent="0.1" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imageAvatar"
-        android:layout_width="315dp"
-        android:layout_height="315dp"
+        android:id="@+id/imageAvatarBG"
+        android:layout_width="310dp"
+        android:layout_height="310dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewWelcome"
         app:layout_constraintTop_toTopOf="@+id/marginTopImageAvatar"
         app:shapeAppearanceOverlay="@style/circle"
         app:srcCompat="@drawable/avatar_placeholder" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageAvatar"
+        android:layout_width="310dp"
+        android:layout_height="310dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWelcome"
+        app:layout_constraintTop_toTopOf="@+id/marginTopImageAvatar"
+        app:shapeAppearanceOverlay="@style/circle"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/marginTopImageAvatar"
@@ -56,12 +54,9 @@
 
     <TextView
         android:id="@+id/textNameUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nguyễn Kiên Long"
-        android:textColor="@color/white"
-        android:textSize="36sp"
-        android:textStyle="bold"
+        android:layout_width="350dp"
+        android:layout_height="38dp"
+        android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/marginTopTextUserName" />
@@ -71,39 +66,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.54" />
+        app:layout_constraintGuide_percent="0.55" />
 
     <TextView
         android:id="@+id/textPositionUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="CHỨC VỤ"
-        android:textColor="@color/white"
-        android:textSize="32sp"
+        android:layout_width="350dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNameUser" />
 
     <TextView
         android:id="@+id/textUnitUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="ĐƠN VỊ"
-        android:textColor="@color/white"
-        android:textSize="32sp"
+        android:layout_width="350dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPositionUser" />
-
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/placeholderView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <include
-            layout="@layout/shimmer_loading"
-            />
-    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
