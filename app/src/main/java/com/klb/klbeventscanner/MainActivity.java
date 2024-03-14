@@ -2,6 +2,7 @@ package com.klb.klbeventscanner;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imageAvatarView;
     private ShimmerFrameLayout shimmerFrameLayout;
     private Animation fadeInAnimation;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,14 +65,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         initData();
-
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-////                getInfoUser("209675af-92e8-4f9e-ac6a-27b8fb6a76c3");
-////                navigatorNextScreen();
-//            }
-//        }, TIMER_VALUE);
     }
 
     @Override
@@ -83,7 +77,9 @@ public class MainActivity extends AppCompatActivity {
 
             if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
                 Log.d("onKeyUp is: ", stringBuilder.toString());
-                getInfoUser(stringBuilder.toString().replaceAll("\n", ""), this);
+                String[] subValues = stringBuilder.toString().split("/");
+                Log.d("onKeyUp is: ", subValues[subValues.length - 1]);
+                getInfoUser(subValues[subValues.length - 1].replaceAll("\n", ""), this);
                 stringBuilder.setLength(0);
             }
         }
@@ -126,12 +122,7 @@ public class MainActivity extends AppCompatActivity {
                     UserInfo data = response.body();
                     if (data != null) {
                         setShowContentView(false);
-                        imageAvatarView.setImageResource(R.drawable.avatar_placeholder);
-                        textViewNameUser.setText(data.getName().toUpperCase());
-                        textViewNamePosition.setText(data.getPosition().toUpperCase());
-                        textViewNameUnit.setText(data.getBranch().toUpperCase());
-                        textViewWelcome.setText("CHÀO MỪNG ".toUpperCase() + data.getGender().toUpperCase() + " THAM DỰ HỘI NGHỊ".toUpperCase());
-                        getAvatar(data.getPortraitId());
+                        getAvatar(data);
                     } else {
                         Log.e("Get info user", "data null");
                     }
@@ -163,11 +154,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressLint("SetTextI18n")
-    public void getAvatar(String portraitId) {
-
+    public void getAvatar(UserInfo info) {
         // Load image from URL into ImageView using Picasso
         String BASE_IMAGE_URL = "http://event2024.kienlongbank.com/?entryPoint=image&id=";
-        picasso.load(BASE_IMAGE_URL + portraitId)
+        picasso.load(BASE_IMAGE_URL + info.getPortraitId())
                 .centerCrop()
                 .fit()
                 .placeholder(R.drawable.avatar_placeholder)
@@ -175,6 +165,10 @@ public class MainActivity extends AppCompatActivity {
                 .into(imageAvatarView, new com.squareup.picasso.Callback() {
                     @Override
                     public void onSuccess() {
+                        textViewNameUser.setText(info.getName().toUpperCase());
+                        textViewNamePosition.setText(info.getPosition().toUpperCase());
+                        textViewNameUnit.setText(info.getBranch().toUpperCase());
+                        textViewWelcome.setText("CHÀO MỪNG ".toUpperCase() + info.getGender().toUpperCase() + " THAM DỰ HỘI NGHỊ".toUpperCase());
                         setShowContentView(true);
                         textViewWelcome.startAnimation(fadeInAnimation);
                         imageAvatarView.startAnimation(fadeInAnimation);
@@ -185,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(Exception e) {
+                        imageAvatarView.setImageResource(R.drawable.avatar_placeholder);
                         setShowContentView(true);
                     }
                 });
