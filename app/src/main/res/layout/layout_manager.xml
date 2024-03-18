@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageAvatar"
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/marginTopImageAvatar"
+        app:shapeAppearanceOverlay="@style/circle"
+        app:srcCompat="@drawable/manager_1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/marginTopImageAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.09" />
+
+    <TextView
+        android:id="@+id/textGenderManager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Anh "
+        android:textColor="@color/white"
+        android:textSize= "56sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/marginTopGenderManager" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/marginTopGenderManager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.58" />
+
+    <TextView
+        android:id="@+id/textNameManager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="44sp"
+        android:text="TRẦN HỒNG MINH"
+        android:textColor="#2BEDFC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGenderManager" />
+
+    <TextView
+        android:id="@+id/textPositionUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PHÓ TỔNG GIÁM ĐỐC"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNameManager" />
+
+    <!--    <com.facebook.shimmer.ShimmerFrameLayout-->
+    <!--        android:id="@+id/placeholderView"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+    <!--        <include-->
+    <!--            layout="@layout/shimmer_loading"-->
+    <!--            />-->
+    <!--    </com.facebook.shimmer.ShimmerFrameLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

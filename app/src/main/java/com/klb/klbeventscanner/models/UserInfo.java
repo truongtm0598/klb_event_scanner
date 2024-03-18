@@ -1,5 +1,7 @@
 package com.klb.klbeventscanner.models;
 
+import com.klb.klbeventscanner.R;
+
 import java.util.Objects;
 
 public class UserInfo {
@@ -8,6 +10,7 @@ public class UserInfo {
     String branch;
     String sex;
     String portraitId;
+    boolean isManager;
 
     public String getName() {
         return name;
@@ -32,4 +35,20 @@ public class UserInfo {
     public String getPortraitId() {
         return portraitId;
     }
+//
+//    public int getImageBg(){
+//        if(idImage == 0){
+//            return R.id.imageBg;
+//        }
+//
+//        if(idImage == 1){
+//            return R.id.imageBg;
+//        }
+//
+//        if(idImage == 2){
+//            return R.id.imageBg;
+//        }
+//
+//        return R.id.imageBg;
+//    }
 }

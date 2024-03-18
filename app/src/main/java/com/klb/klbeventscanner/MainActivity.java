@@ -1,10 +1,12 @@
 package com.klb.klbeventscanner;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -12,14 +14,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.klb.klbeventscanner.dialogs.AppDialog;
 import com.klb.klbeventscanner.models.AppRequestBody;
@@ -28,30 +28,28 @@ import com.klb.klbeventscanner.network.ApiService;
 import com.klb.klbeventscanner.network.RetrofitClient;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
-
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.TimeZone;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 public class MainActivity extends AppCompatActivity {
-
-    private static final long TIMER_VALUE = 10000;
     StringBuilder stringBuilder = new StringBuilder();
     private Picasso picasso;
     private SimpleDateFormat formatter;
     private TextView textViewNameUser;
     private TextView textViewNamePosition;
-    private TextView textViewNameUnit;
-    private TextView textViewWelcome;
+    private TextView textGenderManager;
+    private TextView textNameManager;
+    private Boolean isManager = false;
+    private View layoutNormal;
+    private View layoutManager;
     private ImageView imageAvatarView;
-    private ShimmerFrameLayout shimmerFrameLayout;
+    private ImageView imageBg;
+//    private ShimmerFrameLayout shimmerFrameLayout;
     private Animation fadeInAnimation;
-    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         initData();
     }
 
@@ -83,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
                 stringBuilder.setLength(0);
             }
         }
-
         return super.dispatchKeyEvent(event);
     }
 
@@ -93,19 +89,41 @@ public class MainActivity extends AppCompatActivity {
                 .downloader(new OkHttp3Downloader(RetrofitClient.getClientImage()))
                 .indicatorsEnabled(true)
                 .build();
-
         // Load the animation
         fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
-
         formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-        shimmerFrameLayout = findViewById(R.id.placeholderView);
+        imageAvatarView = findViewById(R.id.imageBg);
+
+        //view
+        layoutNormal = findViewById(R.id.layoutNormal);
+        layoutManager = findViewById(R.id.layoutManager);
+
         textViewNameUser = findViewById(R.id.textNameUser);
         textViewNamePosition = findViewById(R.id.textPositionUser);
-        textViewNameUnit = findViewById(R.id.textUnitUser);
         imageAvatarView = findViewById(R.id.imageAvatar);
-        textViewWelcome = findViewById(R.id.textViewWelcome);
-        shimmerFrameLayout.setVisibility(View.INVISIBLE);
+
+        textGenderManager = findViewById(R.id.textGenderManager);
+        textNameManager = findViewById(R.id.textNameManager);
+        Typeface yenTu = Typeface.createFromAsset(getAssets(), "utm_yen_tu.ttf");
+        Typeface romanClassic = Typeface.createFromAsset(getAssets(), "utm_roman_classic.ttf");
+        textGenderManager.setTypeface(yenTu);
+        textNameManager.setTypeface(romanClassic);
+
+
+
+//        shimmerFrameLayout = findViewById(R.id.placeholderView);
+//        shimmerFrameLayout.setVisibility(View.INVISIBLE);
+
+        setRickText("Nguyễn Kiên Long", "Anh");
+    }
+
+    void setRickText(String userName, String gender){
+        String textNameUser = gender + " " + userName.toUpperCase();
+        SpannableString spannableString = new SpannableString(textNameUser);
+        StyleSpan boldSpan = new StyleSpan(Typeface.BOLD);
+        spannableString.setSpan(boldSpan, gender.length() + 1, textNameUser.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        textViewNameUser.setText(spannableString);
     }
 
     public void getInfoUser(String valueQRCode, Context context) {
@@ -127,36 +145,31 @@ public class MainActivity extends AppCompatActivity {
                         Log.e("Get info user", "data null");
                     }
                 } else {
-
-                    if (response.code() == 400) {
+                    if (response.code() == 404) {
                         setShowContentView(true);
                         AppDialog.showDialog(context, "Lỗi " + response.code(), "QR code không chính xác.\nVui lòng thử lại");
                     } else {
                         setShowContentView(true);
-                        AppDialog.showDialog(context, "Lỗi " + response.code(), "Đã có lỗi xảy ra.\nVui lòng thử lại");
+                        AppDialog.showDialog(context, "Lỗi " + response.code(), "Đã có lỗi xảy ra.\nVui lòng thử lại sau");
                     }
-
                     // Log mã trạng thái của phản hồi
                     Log.e("Get info user", "Response code: " + response.code());
                     String errorBody = response.errorBody().toString();
                     Log.e("Get info user", "Error: " + errorBody);
-
                 }
             }
-
             @Override
             public void onFailure(@NonNull Call<UserInfo> call, @NonNull Throwable t) {
                 setShowContentView(true);
                 Log.e("Get info user", t.getMessage() + "\n" + t.getCause() + "\n" + Arrays.toString(t.getStackTrace()));
-                AppDialog.showDialog(context, "Lỗi ", "Đã có lỗi xảy ra.\nVui lòng thử lại sau");
+                AppDialog.showDialog(context, "Lỗi " , "Đã có lỗi xảy ra.\nVui lòng thử lại sau");
             }
         });
     }
 
     @SuppressLint("SetTextI18n")
     public void getAvatar(UserInfo info) {
-        // Load image from URL into ImageView using Picasso
-        String BASE_IMAGE_URL = "http://event2024.kienlongbank.com/?entryPoint=image&id=";
+        String BASE_IMAGE_URL = "http://event2024.kienlongbank.com/api/v1/public-attachment/";
         picasso.load(BASE_IMAGE_URL + info.getPortraitId())
                 .centerCrop()
                 .fit()
@@ -165,43 +178,48 @@ public class MainActivity extends AppCompatActivity {
                 .into(imageAvatarView, new com.squareup.picasso.Callback() {
                     @Override
                     public void onSuccess() {
-                        textViewNameUser.setText(info.getName().toUpperCase());
-                        textViewNamePosition.setText(info.getPosition().toUpperCase());
-                        textViewNameUnit.setText(info.getBranch().toUpperCase());
-                        textViewWelcome.setText("CHÀO MỪNG ".toUpperCase() + info.getGender().toUpperCase() + " THAM DỰ HỘI NGHỊ".toUpperCase());
+                        setData(info);
                         setShowContentView(true);
-                        textViewWelcome.startAnimation(fadeInAnimation);
-                        imageAvatarView.startAnimation(fadeInAnimation);
-                        textViewNameUser.startAnimation(fadeInAnimation);
-                        textViewNamePosition.startAnimation(fadeInAnimation);
-                        textViewNameUnit.startAnimation(fadeInAnimation);
+                        fadeIn();
                     }
-
                     @Override
                     public void onError(Exception e) {
                         imageAvatarView.setImageResource(R.drawable.avatar_placeholder);
+                        setData(info);
                         setShowContentView(true);
+                        fadeIn();
                     }
                 });
     }
 
+    void setData(UserInfo info){
+        textViewNameUser.setText(info.getName().toUpperCase());
+        textViewNamePosition.setText(info.getPosition().toUpperCase());
+//        textViewWelcome.setText("CHÀO MỪNG ".toUpperCase() + info.getGender().toUpperCase() + " THAM DỰ HỘI NGHỊ".toUpperCase());
+    }
+
+    void fadeIn(){
+//        textViewWelcome.startAnimation(fadeInAnimation);
+        imageAvatarView.startAnimation(fadeInAnimation);
+        textViewNameUser.startAnimation(fadeInAnimation);
+        textViewNamePosition.startAnimation(fadeInAnimation);
+    }
+
     public void setShowContentView(boolean isShowData) {
         if (isShowData) {
-            textViewWelcome.setVisibility(View.VISIBLE);
+//            textViewWelcome.setVisibility(View.VISIBLE);
             imageAvatarView.setVisibility(View.VISIBLE);
             textViewNameUser.setVisibility(View.VISIBLE);
             textViewNamePosition.setVisibility(View.VISIBLE);
-            textViewNameUnit.setVisibility(View.VISIBLE);
-            shimmerFrameLayout.setVisibility(View.INVISIBLE);
-            shimmerFrameLayout.stopShimmer();
+//            shimmerFrameLayout.setVisibility(View.INVISIBLE);
+//            shimmerFrameLayout.stopShimmer();
         } else {
-            textViewWelcome.setVisibility(View.INVISIBLE);
+//            textViewWelcome.setVisibility(View.INVISIBLE);
             imageAvatarView.setVisibility(View.INVISIBLE);
             textViewNameUser.setVisibility(View.INVISIBLE);
             textViewNamePosition.setVisibility(View.INVISIBLE);
-            textViewNameUnit.setVisibility(View.INVISIBLE);
-            shimmerFrameLayout.setVisibility(View.VISIBLE);
-            shimmerFrameLayout.startShimmer();
+//            shimmerFrameLayout.setVisibility(View.VISIBLE);
+//            shimmerFrameLayout.startShimmer();
         }
     }
 }

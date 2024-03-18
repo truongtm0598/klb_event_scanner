@@ -22,6 +22,6 @@ public class AppDialog{
                     dialog.dismiss();
                 }
             }
-        }, 7000); // 10 giây
+        }, 5000); // 5 giây
     }
 }

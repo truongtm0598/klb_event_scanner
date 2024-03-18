@@ -16,94 +16,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bg1" />
+        app:srcCompat="@drawable/background_1" />
 
-    <TextView
-        android:id="@+id/textViewWelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CHÀO MỪNG ANH THAM DỰ HỘI NGHỊ"
-        android:textColor="@color/white"
-        android:textSize="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/marginTopTextWelcome" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/marginTopTextWelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imageAvatar"
-        android:layout_width="315dp"
-        android:layout_height="315dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewWelcome"
-        app:layout_constraintTop_toTopOf="@+id/marginTopImageAvatar"
-        app:shapeAppearanceOverlay="@style/circle"
-        app:srcCompat="@drawable/avatar_placeholder" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/marginTopImageAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.283" />
-
-    <TextView
-        android:id="@+id/textNameUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nguyễn Kiên Long"
-        android:textColor="@color/white"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/marginTopTextUserName" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/marginTopTextUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.54" />
-
-    <TextView
-        android:id="@+id/textPositionUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="CHỨC VỤ"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNameUser" />
-
-    <TextView
-        android:id="@+id/textUnitUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="ĐƠN VỊ"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPositionUser" />
-
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/placeholderView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <include
-            layout="@layout/shimmer_loading"
-            />
-    </com.facebook.shimmer.ShimmerFrameLayout>
-
+    <include
+        android:id="@+id/layoutNormal"
+        layout="@layout/layout_normal"
+        />
+    <include
+        android:id="@+id/layoutManager"
+        layout="@layout/layout_manager"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
