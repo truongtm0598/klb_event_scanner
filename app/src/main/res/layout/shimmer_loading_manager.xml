@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/marginTopImageAvatar"
         app:shapeAppearanceOverlay="@style/circle"
-        app:srcCompat="@drawable/manager_1" />
+        app:srcCompat="@drawable/avatar_placeholder" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/marginTopImageAvatar"
@@ -26,11 +26,10 @@
 
     <TextView
         android:id="@+id/textGenderManager"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" Anh "
+        android:layout_width="140dp"
+        android:layout_height="38dp"
         android:textColor="@color/white"
-        android:textSize= "56sp"
+        android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/marginTopGenderManager" />
@@ -44,33 +43,22 @@
 
     <TextView
         android:id="@+id/textNameManager"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="44sp"
-        android:text="TRẦN HỒNG MINH"
-        android:textColor="#2BEDFC"
+        android:layout_width="350dp"
+        android:layout_height="38dp"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textGenderManager" />
 
     <TextView
         android:id="@+id/textPositionUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PHÓ TỔNG GIÁM ĐỐC"
+        android:layout_width="200dp"
+        android:layout_height="38dp"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNameManager" />
-
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/placeholderView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <include
-                layout="@layout/shimmer_loading_manager"
-                />
-        </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

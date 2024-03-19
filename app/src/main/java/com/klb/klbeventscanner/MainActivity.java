@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private View layoutNormal;
     private View layoutManager;
     private ImageView imageAvatarView;
-    private ImageView imageBg;
+    private ImageView imageBgNormal;
+    private ImageView imageBgManager;
 //    private ShimmerFrameLayout shimmerFrameLayout;
     private Animation fadeInAnimation;
 
@@ -93,11 +94,14 @@ public class MainActivity extends AppCompatActivity {
         fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
         formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-        imageAvatarView = findViewById(R.id.imageBg);
+        imageBgNormal = findViewById(R.id.imageBgNormal);
+        imageBgManager = findViewById(R.id.imageBgManager);
 
         //view
         layoutNormal = findViewById(R.id.layoutNormal);
         layoutManager = findViewById(R.id.layoutManager);
+        layoutManager.setVisibility(View.INVISIBLE);
+        imageBgManager.setVisibility(View.INVISIBLE);
 
         textViewNameUser = findViewById(R.id.textNameUser);
         textViewNamePosition = findViewById(R.id.textPositionUser);
@@ -109,8 +113,6 @@ public class MainActivity extends AppCompatActivity {
         Typeface romanClassic = Typeface.createFromAsset(getAssets(), "utm_roman_classic.ttf");
         textGenderManager.setTypeface(yenTu);
         textNameManager.setTypeface(romanClassic);
-
-
 
 //        shimmerFrameLayout = findViewById(R.id.placeholderView);
 //        shimmerFrameLayout.setVisibility(View.INVISIBLE);

@@ -65,13 +65,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNameUser" />
 
-    <!--    <com.facebook.shimmer.ShimmerFrameLayout-->
-    <!--        android:id="@+id/placeholderView"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent">-->
-    <!--        <include-->
-    <!--            layout="@layout/shimmer_loading"-->
-    <!--            />-->
-    <!--    </com.facebook.shimmer.ShimmerFrameLayout>-->
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/placeholderView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include
+                layout="@layout/shimmer_loading_normal"
+                />
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

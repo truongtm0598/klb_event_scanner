@@ -9,68 +9,61 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageAvatar"
-        android:layout_width="600dp"
-        android:layout_height="600dp"
+        android:layout_width="465dp"
+        android:layout_height="465dp"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/marginTopImageAvatar"
-        app:shapeAppearanceOverlay="@style/circle"
-        app:srcCompat="@drawable/manager_1" />
+        app:shapeAppearanceOverlay="@style/circle" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/marginTopImageAvatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.09" />
+        app:layout_constraintGuide_percent="0.153" />
 
     <TextView
-        android:id="@+id/textGenderManager"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" Anh "
+        android:id="@+id/textWelcome"
         android:textColor="@color/white"
-        android:textSize= "56sp"
+        android:textSize="28sp"
+        android:layout_width="240dp"
+        android:layout_height="38dp"
+        android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/marginTopGenderManager" />
+        app:layout_constraintTop_toTopOf="@+id/marginTopWelcomeUser" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/marginTopGenderManager"
+        android:id="@+id/marginTopWelcomeUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.58" />
+        app:layout_constraintGuide_percent="0.53" />
 
     <TextView
-        android:id="@+id/textNameManager"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textNameUser"
+        android:layout_marginTop="4dp"
         android:textSize="44sp"
-        android:text="TRẦN HỒNG MINH"
-        android:textColor="#2BEDFC"
+        android:layout_width="350dp"
+        android:layout_height="38dp"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textGenderManager" />
+        app:layout_constraintTop_toBottomOf="@+id/textWelcome" />
 
     <TextView
         android:id="@+id/textPositionUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PHÓ TỔNG GIÁM ĐỐC"
+        android:layout_marginTop="4dp"
+        android:layout_width="200dp"
+        android:layout_height="38dp"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:background="@drawable/rounded_background"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNameManager" />
-
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/placeholderView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <include
-                layout="@layout/shimmer_loading_manager"
-                />
-        </com.facebook.shimmer.ShimmerFrameLayout>
+        app:layout_constraintTop_toBottomOf="@+id/textNameUser" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
