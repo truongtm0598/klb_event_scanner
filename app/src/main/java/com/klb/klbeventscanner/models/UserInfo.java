@@ -25,30 +25,18 @@ public class UserInfo {
     }
 
     public String getGender() {
-        if(Objects.equals(sex, "Male")){
-            return "anh";
+        if (Objects.equals(sex, "Male")) {
+            return "Anh";
         } else {
-            return "chị";
+            return "Chị";
         }
     }
 
     public String getPortraitId() {
         return portraitId;
     }
-//
-//    public int getImageBg(){
-//        if(idImage == 0){
-//            return R.id.imageBg;
-//        }
-//
-//        if(idImage == 1){
-//            return R.id.imageBg;
-//        }
-//
-//        if(idImage == 2){
-//            return R.id.imageBg;
-//        }
-//
-//        return R.id.imageBg;
-//    }
+
+    public boolean isManager() {
+        return isManager;
+    }
 }

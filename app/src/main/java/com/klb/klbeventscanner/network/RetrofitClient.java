@@ -1,6 +1,10 @@
 package com.klb.klbeventscanner.network;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
+
+import com.klb.klbeventscanner.dialogs.AppDialog;
 
 import org.jetbrains.annotations.NotNull;
 

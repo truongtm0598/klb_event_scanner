@@ -7,22 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imageAvatar"
-        android:layout_width="600dp"
-        android:layout_height="600dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/marginTopImageAvatar"
-        app:shapeAppearanceOverlay="@style/circle"
-        app:srcCompat="@drawable/avatar_placeholder" />
+<!--    <com.google.android.material.imageview.ShapeableImageView-->
+<!--        android:layout_width="500dp"-->
+<!--        android:layout_height="500dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/marginTopImageAvatar"-->
+<!--        app:shapeAppearanceOverlay="@style/circle"-->
+<!--        app:srcCompat="@drawable/avatar_placeholder" />-->
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/marginTopImageAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.09" />
+<!--    <androidx.constraintlayout.widget.Guideline-->
+<!--        android:id="@+id/marginTopImageAvatar"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintGuide_percent="0.12" />-->
 
     <TextView
         android:id="@+id/textGenderManager"
@@ -39,10 +38,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.58" />
+        app:layout_constraintGuide_percent="0.6" />
 
     <TextView
         android:id="@+id/textNameManager"
+        android:layout_marginTop="16dp"
         android:layout_width="350dp"
         android:layout_height="38dp"
         android:textColor="@color/white"
@@ -53,6 +53,7 @@
 
     <TextView
         android:id="@+id/textPositionUser"
+        android:layout_marginTop="16dp"
         android:layout_width="200dp"
         android:layout_height="38dp"
         android:textColor="@color/white"

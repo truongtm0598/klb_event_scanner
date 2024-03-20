@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import android.os.Handler;
 
 public class AppDialog{
-    public static void showDialog(final Context context, String title, String message) {
+    public static void showDialog(final Context context, String title, String message, int time) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(title).setMessage(message);
 
@@ -22,6 +22,6 @@ public class AppDialog{
                     dialog.dismiss();
                 }
             }
-        }, 5000); // 5 giây
+        }, time);
     }
 }

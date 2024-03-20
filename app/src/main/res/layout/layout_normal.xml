@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/marginTopImageAvatar"
         app:shapeAppearanceOverlay="@style/circle"
-        app:srcCompat="@drawable/_12" />
+        app:srcCompat="@drawable/avatar_placeholder" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/marginTopImageAvatar"
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:text="CHÀO MỪNG"
         android:textColor="@color/white"
-        android:textSize="28sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/marginTopWelcomeUser" />
@@ -40,33 +40,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.53" />
+        app:layout_constraintGuide_percent="0.54" />
 
     <TextView
         android:id="@+id/textNameUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:textSize="44sp"
+        android:layout_marginTop="8dp"
+        android:textSize="40sp"
         android:textColor="#2BEDFC"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:singleLine="true"
         app:layout_constraintTop_toBottomOf="@+id/textWelcome" />
 
     <TextView
         android:id="@+id/textPositionUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="CHỨC VỤ"
+        android:layout_marginTop="8dp"
         android:textColor="@color/white"
-        android:textSize="28sp"
+        android:textSize="24sp"
+        android:text="CHỨC VỤ"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:singleLine="true"
         app:layout_constraintTop_toBottomOf="@+id/textNameUser" />
 
         <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/placeholderView"
+            android:id="@+id/placeholderViewNormal"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <include
