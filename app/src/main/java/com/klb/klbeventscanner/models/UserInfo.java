@@ -13,18 +13,22 @@ public class UserInfo {
     boolean isManager;
 
     public String getName() {
-        return name;
+        return name != null ? name : "";
     }
 
     public String getPosition() {
-        return position;
+        return position != null ? position : "";
     }
 
     public String getBranch() {
-        return branch;
+        return branch != null ? branch : "";
     }
 
     public String getGender() {
+        if(sex == null){
+            return "";
+        }
+
         if (Objects.equals(sex, "Male")) {
             return "Anh";
         } else {
@@ -33,10 +37,10 @@ public class UserInfo {
     }
 
     public String getPortraitId() {
-        return portraitId;
+        return portraitId != null ? portraitId : null ;
     }
 
     public boolean isManager() {
-        return isManager;
+        return isManager ;
     }
 }

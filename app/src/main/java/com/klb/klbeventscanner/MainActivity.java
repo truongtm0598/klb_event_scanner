@@ -3,7 +3,6 @@ package com.klb.klbeventscanner;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Spannable;
@@ -143,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         shimmerLayoutNormal.setVisibility(View.INVISIBLE);
         shimmerLayoutManager.setVisibility(View.INVISIBLE);
 
-        setRickText("NGUYỄN KIÊN LONG", "Anh");
+        setRickText("KIEN LONG BANK", "Anh");
     }
 
     public void getInfoUser(String valueQRCode, Context context) {
