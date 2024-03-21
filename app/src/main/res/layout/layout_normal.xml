@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/marginTopImageAvatar"
         app:shapeAppearanceOverlay="@style/circle"
-        app:srcCompat="@drawable/avatar_placeholder" />
+        app:srcCompat="@drawable/klb" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/marginTopImageAvatar"
@@ -64,7 +64,6 @@
         android:layout_marginTop="8dp"
         android:textColor="@color/white"
         android:textSize="24sp"
-        android:text="CHỨC VỤ"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

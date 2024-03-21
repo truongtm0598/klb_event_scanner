@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
         shimmerLayoutNormal.setVisibility(View.INVISIBLE);
         shimmerLayoutManager.setVisibility(View.INVISIBLE);
 
-        setRickText("HUỲNH LỆ NHƯ SƯƠNG", "Chị");
+        setRickText("NGUYỄN KIÊN LONG", "Anh");
     }
 
     public void getInfoUser(String valueQRCode, Context context) {
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
         String timeCheckIn = formatter.format(date);
         Log.d("timezone", timeCheckIn);
 
-        AppRequestBody appRequestBody = new AppRequestBody(timeCheckIn, "POS01");
+        AppRequestBody appRequestBody = new AppRequestBody(timeCheckIn, "POS02");
         RetrofitClient.getClient().create(ApiService.class).getInfoUser(valueQRCode, appRequestBody).enqueue(new Callback<UserInfo>() {
             @Override
             public void onResponse(@NonNull Call<UserInfo> call, @NonNull Response<UserInfo> response) {
